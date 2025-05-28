@@ -117,16 +117,5 @@
   </div>  <footer>
     <p>Телефон: 8-923-413-22-17 | Время работы: с 9:00 до 22:00</p>
     <p>&copy; 2025 Частный мастер — Илья</p>
-  </footer>  <script>
-    const carousel = document.getElementById('carousel');
-    const items = carousel.querySelectorAll('.carousel-item');
-
-    carousel.addEventListener('scroll', () => {
-      let center = carousel.scrollLeft + carousel.offsetWidth / 2;
-      items.forEach(item => {
-        let boxCenter = item.offsetLeft + item.offsetWidth / 2;
-        item.classList.toggle('active', Math.abs(center - boxCenter) < item.offsetWidth / 2);
-      });
-    });
-  </script></body>
+  </footer>  <script src="js/script.js"> </script></body>
 </html>
