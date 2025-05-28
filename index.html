@@ -19,16 +19,35 @@
     form button { background: #2e3a4d; color: white; border: none; cursor: pointer; }
     form button:hover { background: #1e293b; }
     .success-message { color: green; text-align: center; display: none; }
+    .gallery-scroll { display: flex; overflow-x: auto; gap: 10px; padding: 10px 0; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+    .gallery-scroll img, .gallery-scroll video {
+      flex: 0 0 auto;
+      width: 200px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      scroll-snap-align: start;
+    }
     @media (max-width: 768px) {
       .card.flex { flex: 1 1 100%; }
+      .gallery-scroll img, .gallery-scroll video {
+        width: 150px;
+        height: 100px;
+      }
     }
+    /* Модальное окно */
+    .modal { display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; padding: 20px; }
+    .modal-content { max-width: 90%; max-height: 80vh; }
+    .modal img, .modal video { max-width: 100%; max-height: 100%; }
+    .modal-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 30px; cursor: pointer; }
   </style>
 </head>
 <body>
   <header>
-	  <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
     <img src="img/logo.JPG" alt="логотип" style="height: 50px;">
-    <h1 style="margin: 0;">Ремонт холодильников на дому — Илья</h1>
+    <h1 style="margin: 0; font-size: 1.5em;">Ремонт холодильников на дому — Илья</h1>
   </div>
 
     <p>Выезд по Томску и в пределах 15 км</p>
@@ -36,15 +55,17 @@
       <a href="https://www.avito.ru/tomsk/predlozheniya_uslug/remont_holodilnikov_na_domu_4430825568" target="_blank">Авито</a>
       <a href="https://t.me/icetehnik" target="_blank">Telegram</a>
     </div>
+    <div class="gallery-scroll">
+      <img src="img/photo1.jpg" alt="Галерея" onclick="openModal(this.src, 'img')">
+      <video src="video/sample1.mp4" controls onclick="openModal(this.src, 'video')"></video>
+      <img src="img/photo2.jpg" alt="Галерея" onclick="openModal(this.src, 'img')">
+    </div>
   </header>
-
-
-
-
-
-
-
-
+  <div class="modal" id="modal" onclick="closeModal()">
+    <span class="modal-close">&times;</span>
+    <img id="modal-img" class="modal-content" style="display:none">
+    <video id="modal-video" class="modal-content" controls style="display:none"></video>
+  </div>
   <div class="container">
     <section class="section">
       <img class="image" src="img/banner.jpg" alt="Ремонт холодильников">
@@ -59,7 +80,6 @@
         <div class="card flex">Обслуживание по Томску и области</div>
       </div>
     </section>
-
     <section class="section">
       <h2>Отзывы</h2>
       <div class="reviews">
@@ -90,10 +110,34 @@
       </div>
     </section>
   </div>
-
-  <footer>
+<footer>
     <p>Телефон: 8-923-413-22-17 | Время работы: с 9:00 до 22:00</p>
     <p>&copy; 2025 Частный мастер — Илья</p>
-  </footer>
+</footer>
+<script>
+function openModal(src, type) {
+  const modal = document.getElementById("modal");
+  const img = document.getElementById("modal-img");
+  const video = document.getElementById("modal-video");
+  if (type === 'img') {
+    img.src = src;
+    img.style.display = "block";
+    video.style.display = "none";
+  } else {
+    video.src = src;
+    video.style.display = "block";
+    img.style.display = "none";
+  }
+  modal.style.display = "flex";
+}
+function closeModal() {
+  const modal = document.getElementById("modal");
+  modal.style.display = "none";
+  document.getElementById("modal-img").src = "";
+  const vid = document.getElementById("modal-video");
+  vid.pause();
+  vid.src = "";
+}
+</script>
 </body>
 </html>
