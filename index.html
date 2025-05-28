@@ -16,66 +16,53 @@
     .image { width: 100%; border-radius: 8px; object-fit: cover; margin-bottom: 10px; }
     form input, form textarea, form button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
     form button { background: #2e3a4d; color: white; border: none; cursor: pointer; }
-    form button:hover { background: #1e293b; }
-    .success-message { color: green; text-align: center; display: none; }
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      gap: 20px;
-      padding: 20px 0;
-      scroll-snap-type: x mandatory;
-      perspective: 1000px;
-      justify-content: center;
-    }
-    .carousel-item {
-      flex: 0 0 auto;
-      scroll-snap-align: center;
-      transform: scale(0.8);
-      transition: transform 0.3s;
-    }
-    .carousel-item img {
-      width: 200px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    .carousel-item.active {
-      transform: scale(1.1);
-      z-index: 1;
-    }
-    @media (max-width: 768px) {
-      .card.flex { flex: 1 1 100%; }
-      .carousel-item img { width: 150px; height: 100px; }
-    }
+    form button:hover { background: #1e293b; }.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+  perspective: 1000px;
+  justify-content: center;
+}
+.carousel-item {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  transform: scale(0.8);
+  transition: transform 0.3s;
+}
+.carousel-item img {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.carousel-item.active {
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .card.flex { flex: 1 1 100%; }
+}
+
   </style>
 </head>
 <body>
   <header>
-    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
+    <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
       <img src="img/logo.JPG" alt="логотип" style="height: 50px;">
-      <h1 style="margin: 0; font-size: 1.5em;">Ремонт холодильников на дому — Илья</h1>
+      <h1 style="margin: 0;">Ремонт холодильников на дому — Илья</h1>
     </div>
     <p>Выезд по Томску и в пределах 15 км</p>
     <div class="social-links">
       <a href="https://www.avito.ru/tomsk/predlozheniya_uslug/remont_holodilnikov_na_domu_4430825568" target="_blank">Авито</a>
       <a href="https://t.me/icetehnik" target="_blank">Telegram</a>
     </div>
-  </header>  <section class="section">
-    <h2 style="text-align: center;">Примеры работ</h2>
-    <div class="carousel" id="carousel">
-      <div class="carousel-item"><img src="img/photo1.jpg" alt="Фото 1"></div>
-      <div class="carousel-item"><img src="img/photo2.jpg" alt="Фото 2"></div>
-      <div class="carousel-item"><img src="img/photo3.jpg" alt="Фото 3"></div>
-      <div class="carousel-item"><img src="img/photo4.jpg" alt="Фото 4"></div>
-    </div>
-    <div style="text-align:center; margin-top: 20px;">
-      <a href="tel:+79234132217" style="padding: 10px 20px; background: #2e3a4d; color: white; border-radius: 8px; text-decoration: none; font-size: 18px;">📞 Позвонить</a>
-    </div>
-  </section>  <div class="container">
-  <!-- Это комментарий, который не будет отображаться на странице <section class="section">
-  <img class="image" src="img/banner.jpg" alt="Ремонт холодильников">
+  </header>  <div class="container">
+    <section class="section">
+      <img class="image" src="img/banner.jpg" alt="Ремонт холодильников">
     </section><section class="section">
-    -->
   <h2>Услуги</h2>
   <div class="services">
     <div class="card flex">Гарантии на выполненные работы</div>
@@ -84,11 +71,22 @@
     <div class="card flex">Обслуживание по Томску и области</div>
   </div>
 </section>
-    <section class="section">
+
+<section class="section">
   <h2>Отзывы</h2>
   <div class="reviews">
     <div class="card flex"><strong>Анна:</strong> Отличный мастер, всё объяснил и починил за 30 минут. Спасибо!</div>
     <div class="card flex"><strong>Игорь:</strong> Работает аккуратно, приехал точно по времени. Рекомендую!</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Галерея</h2>
+  <div class="carousel" id="carousel">
+    <div class="carousel-item"><img src="img/photo1.jpg" alt="Фото 1"></div>
+    <div class="carousel-item"><img src="img/photo2.jpg" alt="Фото 2"></div>
+    <div class="carousel-item"><img src="img/photo3.jpg" alt="Фото 3"></div>
+    <div class="carousel-item"><img src="img/photo4.jpg" alt="Фото 4"></div>
   </div>
 </section>
 
@@ -99,7 +97,6 @@
     <input type="hidden" name="subject" value="Новая заявка с сайта">
     <input type="hidden" name="from_name" value="Сайт Ремонт холодильников">
     <input type="hidden" name="redirect" value="https://denni1900.github.io/site/success.html">
-
     <input type="text" name="name" placeholder="Ваше имя" required>
     <input type="tel" name="phone" placeholder="Телефон" required>
     <textarea name="message" placeholder="Комментарий (необязательно)"></textarea>
@@ -117,5 +114,5 @@
   </div>  <footer>
     <p>Телефон: 8-923-413-22-17 | Время работы: с 9:00 до 22:00</p>
     <p>&copy; 2025 Частный мастер — Илья</p>
-  </footer>  <script src="js/script.js"> </script></body>
+  </footer>  <!-- JavaScript-карусель -->  <script src="script.js"></script></body>
 </html>
