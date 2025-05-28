@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ремонт холодильников Томск | Мастер Илья</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f1f4f6; color: #333; }
+    header, footer { background: #2e3a4d; color: white; padding: 20px; text-align: center; }
+    .social-links a { color: #ffd700; margin: 0 10px; text-decoration: underline; display: inline-block; }
+    .container { max-width: 1200px; margin: auto; padding: 20px; }
+    .section { margin-bottom: 40px; }
+    .card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    .services, .advantages, .reviews { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .card.flex { flex: 1 1 250px; }
+    .image { width: 100%; border-radius: 8px; object-fit: cover; margin-bottom: 10px; }
+    form input, form textarea, form button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
+    form button { background: #2e3a4d; color: white; border: none; cursor: pointer; }
+    form button:hover { background: #1e293b; }
+    .success-message { color: green; text-align: center; display: none; }
+    @media (max-width: 768px) {
+      .card.flex { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+	  <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+    <img src="images/logo.jpg" alt="логотип" style="height: 50px;">
+    <h1 style="margin: 0;">Ремонт холодильников на дому — Илья</h1>
+  </div>
+
+    <p>Выезд по Томску и в пределах 15 км</p>
+    <div class="social-links">
+      <a href="https://www.avito.ru/user/123456" target="_blank">Авито</a>
+      <a href="https://t.me/icetehnik" target="_blank">Telegram</a>
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+  <div class="container">
+    <section class="section">
+      <img class="image" src="images/banner.jpg" alt="Ремонт холодильников">
+    </section>
+
+    <section class="section">
+      <h2>Услуги</h2>
+      <div class="services">
+        <div class="card flex">Гарантии на выполненные работы</div>
+        <div class="card flex">Диагностика и ремонт у Вас дома</div>
+        <div class="card flex">Выезд в удобное для Вас время</div>
+        <div class="card flex">Обслуживание по Томску и области</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Отзывы</h2>
+      <div class="reviews">
+        <div class="card flex"><strong>Анна:</strong> Отличный мастер, всё объяснил и починил за 30 минут. Спасибо!</div>
+        <div class="card flex"><strong>Игорь:</strong> Работает аккуратно, приехал точно по времени. Рекомендую!</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Оставить заявку</h2>
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="b59abbd6-6827-4e7c-8b5d-110cc3bda777">
+        <input type="hidden" name="subject" value="Новая заявка с сайта">
+        <input type="hidden" name="from_name" value="Сайт Ремонт холодильников">
+        <input type="hidden" name="redirect" value="success.html">
+
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="tel" name="phone" placeholder="Телефон" required>
+        <textarea name="message" placeholder="Комментарий (необязательно)"></textarea>
+        <button type="submit">Оставить заявку</button>
+      </form>
+    </section>
+
+    <section class="section">
+      <h2>Местоположение</h2>
+      <div style="width: 100%; height: 400px;">
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A7d1be30f9c85c44760b2696cd34548e65abcae10bdb07d674a92c4b5e38d2e61&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>Телефон: 8-923-413-22-17 | Время работы: с 9:00 до 22:00</p>
+    <p>&copy; 2025 Частный мастер — Илья</p>
+  </footer>
+</body>
+</html>
