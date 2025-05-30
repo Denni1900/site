@@ -13,7 +13,7 @@ for (let i = 1; i <= 14; i++) {
 // Прокрутка кнопками
 function scrollCarousel(direction) {
   carousel.scrollBy({
-    left: direction * 220,
+    left: direction * 500,
     behavior: "smooth"
   });
 }
