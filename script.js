@@ -1,24 +1,49 @@
-const track = document.getElementById('carousel-track');
-const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modal-img');
 
+const carousel = document.getElementById("carousel-track");
+
+// Загружаем изображения
 for (let i = 1; i <= 14; i++) {
-  const img = document.createElement('img');
-  img.src = 'img/photo' + i + '.jpg';
-  img.alt = 'Фото ' + i;
+  const img = document.createElement("img");
+  img.src = `img/photo${i}.jpg`;
+  img.alt = `Фото ${i}`;
   img.onclick = () => openModal(img.src);
-  track.appendChild(img);
+  carousel.appendChild(img);
 }
 
+// Прокрутка кнопками
 function scrollCarousel(direction) {
-  track.scrollBy({ left: direction * 220, behavior: 'smooth' });
+  carousel.scrollBy({
+    left: direction * 220,
+    behavior: "smooth"
+  });
 }
 
+// Увеличение изображений
 function openModal(src) {
-  modal.style.display = 'flex';
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
   modalImg.src = src;
+  modal.style.display = "flex";
 }
 
 function closeModal() {
-  modal.style.display = 'none';
+  document.getElementById("modal").style.display = "none";
 }
+
+// Добавим поддержку свайпа
+let startX = 0;
+
+carousel.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+carousel.addEventListener("touchmove", (e) => {
+  if (!startX) return;
+  let currentX = e.touches[0].clientX;
+  let diffX = startX - currentX;
+
+  if (Math.abs(diffX) > 30) {
+    carousel.scrollLeft += diffX;
+    startX = 0;
+  }
+});
