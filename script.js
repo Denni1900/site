@@ -11,7 +11,7 @@ for (let i = 1; i <= 14; i++) {
 }
 
 function scrollCarousel(direction) {
-  track.scrollBy({ left: direction * 1000, behavior: 'smooth' });
+  track.scrollBy({ left: direction * 220, behavior: 'smooth' });
 }
 
 function openModal(src) {
