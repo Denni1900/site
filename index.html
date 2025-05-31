@@ -18,10 +18,15 @@
 
     .header-wrapper h1 {
       margin: 0;
-      font-family: 'Princetown Solid', sans-serif;
+      font-family: 'Impact', sans-serif;
       font-size: 1.8em;
     }
-    </style>
+    
+@import url('https://fonts.cdnfonts.com/css/princetown');
+.header-wrapper + p {
+    font-family: 'Princetown', sans-serif;
+}
+</style>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Ремонт холодильников Томск | Мастер Илья</title>
@@ -108,9 +113,8 @@
       .card.flex { flex: 1 1 100%; }
     }
   </style>
-<link href="img/logo.JPG" rel="icon" type="image/jpeg"/></head>
+<link href="img/logo.JPG" rel="icon" type="image/jpeg"/><link href="https://fonts.cdnfonts.com/css/princetown" rel="stylesheet"/></head>
 <body>
-
 <!-- Шапка сайта с логотипом и названием -->
 <header>
 <div class="header-wrapper">
@@ -123,7 +127,6 @@
 <a href="https://t.me/icetehnik" target="_blank">Telegram</a>
 </div>
 </header>
-
 <div class="container">
 <section class="section">
 <h2>Галерея</h2>
@@ -166,13 +169,13 @@
 </section>
 <section class="section">
 <h2>Оставить заявку</h2>
-<form action="https://api.web3forms.com/submit" method="POST">
-<input name="access_key" type="hidden" value="b59abbd6-6827-4e7c-8b5d-110cc3bda777"/>
-<input name="subject" type="hidden" value="Новая заявка с сайта"/>
-<input name="redirect" type="hidden" value="https://denni1900.github.io/site/success.html"/>
-<input name="name" placeholder="Ваше имя" required="" type="text"/>
-<input name="phone" placeholder="Телефон" required="" type="tel"/>
-<textarea name="message" placeholder="Комментарий (необязательно)"></textarea>
+<form id="whatsapp-form">
+
+
+
+<input id="ваше" placeholder="Ваше имя" required="True" type="text"/>
+<input id="телефон" placeholder="Телефон" required="True" type="tel"/>
+<textarea id="комментарий" placeholder="Комментарий (необязательно)" required="True"></textarea>
 <button type="submit">Оставить заявку</button>
 </form>
 </section>
@@ -203,5 +206,18 @@
       document.getElementById('modal').style.display = 'none';
     }
   </script>
-</body>
+<script>
+document.getElementById("whatsapp-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const name = document.getElementById("ваше").value;
+  const phone = document.getElementById("телефон").value;
+  const message = document.getElementById("комментарий")?.value || "";
+
+  const fullMessage = `Здравствуйте! Меня зовут ${name}. Телефон: ${phone}. ${message ? 'Комментарий: ' + message : ''}`;
+  const phoneNumber = "79234132217";
+
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`;
+  window.open(url, "_blank");
+});
+</script></body>
 </html>
